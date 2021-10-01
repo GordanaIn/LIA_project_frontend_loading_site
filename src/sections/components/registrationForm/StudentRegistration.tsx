@@ -1,49 +1,67 @@
 import React, {FC, useEffect, useState} from 'react';
-import {useStyles} from "./RegistrationFormStyle/StudentRegistrationStyle";
-import {Grid, Paper} from "@material-ui/core";
-//import StudentClient from "../../Api/StudentClient";
+import {useStyles} from "./RegistrationFormStyle/RegistrationStyle";
+import {Grid, Paper, TextField} from "@material-ui/core";
+import LoginButton from "../loginAndRegister/button/LoginButton";
+import {Link, Route} from "react-router-dom";
+import RegisterButton from "../loginAndRegister/button/RegisterButton";
+import UserService from "../../api/UserService";
+import LandingPage from "../../pages/LandingPage";
 
 
 
-interface Person {
-    fName: string,
-    lName:  string,
-    email: string,
+interface user{
+    username:String,
+    email:String,
+    password:String,
+}
+interface Student {
+    userID:{
+        username:String,
+        email:String,
+        password:String,
+     },
+    firstName: string,
+    lastName:  string,
     phone: string,
-    street: string,
-    postCode:string,
-    city:string,
+    schoolName: string,
+    eduction:string,
 };
 
 
-const StudentRegistration: React.FC<Person> = () => {
+const StudentRegistration: React.FC<{}> = () => {
     const classes = useStyles();
 
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
     const [phone, setPhone] = useState("");
-    const [street, setStreet] = useState("");
-    const [postCode, setPostCode] = useState("");
-    const [city, setCity] = useState("");
-
-    const [student,SetStudent]=useState<Person>();
+    const [schoolName, setSchoolName] = useState("");
+    const [education, setEduction] = useState("");
 
     const onSubmit = (e : React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
 
         let user={
-            fName: firstName,
-            lName: lastName,
+            username:username,
+            email:email,
+            password:password,
+        }
+        let student={
+            userId:{
+
+            },
+            firstName: firstName,
+            lastName: lastName,
             email: email,
             phone: phone,
-            street: street,
-            postCode:postCode,
-            city:city,
+            schoolName: schoolName,
+            eduction:education,
         }
         console.log(user);
-        //StudentClient.addAddress(user).then(res=>console.log(res)).catch(err=>console.log(err));
+        UserService.saveUser(user).then(res=>console.log(res)).catch(err=>console.log(err));
         //StudentClient.addUser(user).then(res=>console.log(res)).catch(err=>console.log(err));
 
         // SetStudent(person);
@@ -51,98 +69,57 @@ const StudentRegistration: React.FC<Person> = () => {
         // console.log(student?.fName, student?.lName, student?.email, student?.phone, student?.street, student?.postCode, student?.city);
     }
     return (
-        <Grid container spacing={4} className={classes.root}>
-            <Paper elevation={3} style={{ width: 400, height: 400, background: 'white', }}>
+        <div className={classes.root}>
+            <Paper elevation={3} className={classes.paper}>
                 <form   onSubmit={e => onSubmit(e)}>
-                    <h2 className={classes.h1} >Sign up</h2>
-                    <div  >
-                        <label className={classes.label} htmlFor="firstName" >First Name: </label>
-                        <input
-                            type="text"
-                            className={classes.textBox}
-                            placeholder="Enter first name"
-                            name="firstName"
-                            value={firstName}
-                            onChange={e => setFirstName(e.target.value)}
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="fName" className={classes.label} >Last Name: </label>
-                        <input
-                            type="text"
-                            className={classes.textBox}
-                            placeholder="Enter last name"
-                            name="lastName"
-                            value={lastName}
-                            onChange={e => setLastName(e.target.value)}
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label className={classes.label} htmlFor="email" >Email: </label>
-                        <input
-                            type="text"
-                            className={classes.textBox}
-                            placeholder="Enter Email"
-                            name="email"
-                            value={email}
-                            onChange={e => setEmail(e.target.value)}
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label className={classes.label} htmlFor="phoneNumber" >Phone: </label>
-                        <input
-                            type="text"
-                            className={classes.textBox}
-                            placeholder="Enter phone number"
-                            name="phone"
-                            value={phone}
-                            onChange={e => setPhone(e.target.value)}
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label className={classes.label} htmlFor="fName" >Street: </label>
-                        <input
-                            className={classes.textBox}
-                            type="text"
-                            placeholder="Enter street"
-                            name="street"
-                            value={street}
-                            onChange={e => setStreet(e.target.value)}
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label className={classes.label} htmlFor="fName" >PostCode: </label>
-                        <input className={classes.textBox}
-                               type="text"
-                               placeholder="Enter postCode"
-                               name="postCode"
-                               value={postCode}
-                               onChange={e => setPostCode(e.target.value)}
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label className={classes.label} htmlFor="city"> City :</label>
-                        <input className={classes.textBox}
-                               type="text"
-                               placeholder="Enter City"
-                               id="city"
-                               name="city"
-                               value={city}
-                               onChange={e => setCity(e.target.value)}
-                        />
-                    </div>
+                <h3 className={classes.h3}>Register as a Student</h3>
+                <div className={classes.username} >
+                    <TextField id="standard-basic" label="First Name" variant="standard"   value={firstName}
+                               onChange={e => setFirstName(e.target.value)}/>
+                </div>
+                <div className={classes.username} >
+                    <TextField id="standard-basic" label="Last Name" variant="standard"   value={lastName}
+                               onChange={e => setLastName(e.target.value)}/>
+                </div>
+                <div className={classes.username} >
+                    <TextField id="standard-basic" label="Email" variant="standard"   value={email}
+                               onChange={e => setEmail(e.target.value)}/>
+                </div>
+                <div className={classes.username} >
+                    <TextField id="standard-basic" label="Phone" variant="standard"   value={phone}
+                               onChange={e => setPhone(e.target.value)}/>
+                </div>
+                <div className={classes.username} >
+                        <TextField id="standard-basic" label="School Name" variant="standard"   value={schoolName}
+                               onChange={e => setSchoolName(e.target.value)}/>
+                </div>
+                <div className={classes.username} >
+                    <TextField id="standard-basic" label="Eduction" variant="standard" value={education}
+                               onChange={e => setEduction(e.target.value)} />
+                </div>
+                <div className={classes.username} >
+                    <TextField id="standard-basic" label="Username" variant="standard" value={username}
+                               onChange={e => setUsername(e.target.value)} />
+                </div>
+                <div className={classes.password}>
+                    <TextField id="standard-basic" label="Password" variant="standard" value={password}
+                               onChange={e => setPassword(e.target.value)}/>
+                </div>
+                <div className={classes.btn}>
+                    <RegisterButton />
+                </div>
+                    <p className={classes.p}>
 
-                    <div className="form-group">
-                        <button className={classes.button}
-                                type="submit"
-                            //onClick={onSubmit}
-                        >
-                            Create Student
-                        </button>
-                    </div>
+                        If you have account go
+                        <Link to="/landingPage" className={classes.button} style={{ textDecoration: 'none', color: '#15a905' }} >
+                            Login
+                        </Link>
+
+                    </p>
                 </form>
             </Paper>
-        </Grid>
+
+        </div>
     );
 }
 export default StudentRegistration;

@@ -32,11 +32,11 @@ export default function NavMenu() {
                       anchorEl={anchorEl}
                       onClose={handleClose}>
                     <MenuItem onClick={handleClose}><Link
-                        className={[classes.navBarMenuColor, classes.linkDecoration].join('')} href={"/landingPage"}
+                        style={{ textDecoration: 'none', color: 'inherit' }} className={[classes.navBarMenuColor, classes.linkDecoration].join('')} href={"/landingPage"}
                         to={''}><HomeIcon
                         style={{color: "#C1C4C8", marginRight: 6}}/>Home</Link></MenuItem>
                     <MenuItem onClick={handleClose}><Link
-                        className={[classes.navBarMenuColor, classes.linkDecoration].join('')} href={"/signup"} to={''}><PersonIcon
+                        style={{ textDecoration: 'none', color: 'inherit' }} className={[classes.navBarMenuColor, classes.linkDecoration].join('')} href={"/signup"} to={''}><PersonIcon
                         style={{color: "#C1C4C8", marginRight: 6}}/>Sign Up</Link>
                     </MenuItem>
                 </Menu>

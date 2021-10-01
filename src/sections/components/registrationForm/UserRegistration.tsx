@@ -1,5 +1,5 @@
 import React, { useState} from 'react';
-import {useStyles} from "./RegistrationFormStyle/StudentRegistrationStyle";
+import {useStyles} from "./RegistrationFormStyle/RegistrationStyle";
 import {Grid, Paper} from "@material-ui/core";
 //import { useForm } from '../loginAndRegister/button/useForm';
 import UserService from '../../api/UserService';

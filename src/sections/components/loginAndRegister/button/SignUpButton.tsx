@@ -2,12 +2,8 @@ import React,{useState} from 'react';
 import Button from '@material-ui/core/Button';
 import { useStyles } from '../stylesLogAndSig/Styles';
 import {Paper} from "@material-ui/core";
-import StudentRegistration from '../../registrationForm/StudentRegistration';
-import {HashRouter as Router, Route, Switch} from 'react-router-dom';
-import NavBar from '../../navbar/NavBar';
-
-
-
+import {Link} from 'react-router-dom'
+import UserRegistration from "../../registrationForm/UserRegistration";
 
 
 export default function SignUpButton() {
@@ -15,13 +11,7 @@ export default function SignUpButton() {
     const [navigation, setNavigation] = useState();
 
     function studentHandle () {
-        <Router>
-            <NavBar/>
-            <Switch>
-                <Route exact path="/student" component={StudentRegistration}/>
 
-            </Switch>
-        </Router>
     
     }
     function arbetsgivareHandle () {
@@ -30,9 +20,6 @@ export default function SignUpButton() {
     function skolanHandle () {
 
     }
-
-    }
-
 
     return (
         <div className={classes.root}>
@@ -43,10 +30,14 @@ export default function SignUpButton() {
                 color="primary"
                 className={classes.button1}
                 type="submit"
-                onClick={()=>studentHandle}
             >
-               Student
+                {/* eslint-disable-next-line react/jsx-no-undef */}
+                <Link to="/registrationStudent" style={{ textDecoration: 'none', color: 'inherit' }} >
+                    Student
+                </Link>
+
             </Button>
+
              <Button
                 variant="contained"
                 color="primary"

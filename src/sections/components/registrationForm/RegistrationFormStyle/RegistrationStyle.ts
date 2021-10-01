@@ -22,16 +22,11 @@ export const useStyles = makeStyles((theme: Theme) =>
                 marginLeft:80,
                 fontsize: 15,
             },
-            button: {
-                alignItems:"center",
-                margin: theme.spacing(1),
-                marginTop:100,
-            },
             paper:{
                 alignItems: 'center',
                 justifyContent: 'center',
                 width:400,
-                height:500,
+                height:850,
             },
             username:{
                 alignItems: 'center',
@@ -45,57 +40,36 @@ export const useStyles = makeStyles((theme: Theme) =>
                 marginTop: 30,
                 marginLeft: 100,
             },
-            btn:{
+            h1:{
                 alignItems: 'center',
                 justifyContent: 'center',
-                marginTop: 30,
-                marginLeft: 160,
+                textAlign:'center',
             },
-            button1:{
-                alignItems: 'center',
-                justifyContent: 'center',
-                marginTop: 30,
-                marginLeft: 130,
-                color:"#fff",
-                paddingLeft:38,
-                paddingRight:38,
-                padding:15,
+            label:{
+                textAlign:'left',
+                marginLeft:20,
+            },
+            button:{
 
-            },
-            button2:{
-                alignItems: 'center',
-                justifyContent: 'center',
-                marginTop: 30,
-                marginLeft: 130,
-                color:"#fff",
-                paddingLeft:17,
-                paddingRight:17,
-                padding:15,
-            },
-            button3:{
-                alignItems: 'center',
-                justifyContent: 'center',
-                marginTop: 30,
-                marginLeft: 130,
-                color:"#fff",
-                paddingLeft:44,
-                paddingRight:44,
-                padding:15,
-            },
-            signUp:{
                 alignItems: 'center',
                 justifyContent: 'center',
                 paddingLeft:5,
             },
-            forgetPassword:{
+            textBox:{
                 alignItems: 'center',
                 justifyContent: 'center',
-                marginLeft: 200,
+                marginTop: 20,
             },
-            div:{
-                marginTop:10,
-            }
-
+            combo:{
+                alignItems: 'center',
+                marginTop: 20,
+            },
+            btn:{
+                alignItems: 'center',
+                justifyContent: 'center',
+                marginTop: 30,
+                marginLeft: 140,
+            },
         }),
     )
 ;

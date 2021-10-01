@@ -33,14 +33,12 @@ const NavBar: FC<{}>= (props) => {
 
                     <Grid container direction ="row" justify="space-around" alignItems="center">
                         <Grid item>
-                            {checkWindowSize !== false ? <Link className={[classes.navBarMenuColor, classes.linkDecoration].join('')} to="/landingPage" > Home </Link>  :null}
+                            {checkWindowSize !== false ? <Link style={{ textDecoration: 'none', color: 'inherit' }} className={[classes.navBarMenuColor, classes.linkDecoration].join('')} to="/landingPage" > Home </Link>  :null}
                         </Grid>
                         <Grid item>
-                            {checkWindowSize !== false ? <Link className={[classes.navBarMenuColor, classes.linkDecoration].join('')} to="/signup"> Sign Up</Link>  :null}
+                            {checkWindowSize !== false ? <Link style={{ textDecoration: 'none', color: 'inherit' }} className={[classes.navBarMenuColor, classes.linkDecoration].join('')} to="/support"> Support</Link>  :null}
                         </Grid>
-                        <Grid item>
-                            {checkWindowSize !== false ? <Link className={[classes.navBarMenuColor, classes.linkDecoration].join('')} to="/regForm"> Register as User</Link>  :null}
-                        </Grid>
+
                     </Grid>
                 </Toolbar>
             </AppBar>
