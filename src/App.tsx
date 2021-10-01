@@ -1,26 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {HashRouter as Router, Route, Switch} from 'react-router-dom';
+import NavBar from './sections/components/headerComponents/navbar/NavBar';
+import UserRegistration from './sections/components/registrationForm/UserRegistration';
+import LandingPage from './sections/pages/LandingPage';
+import SignUpPage from './sections/pages/SignUpPage';
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Router>
+        <NavBar/>
+        <Switch>
+          <Route exact path="/landingPage" component={LandingPage}/>
+          <Route exact path="/signup" component={SignUpPage}/>
+          <Route exact path="/regForm" component={UserRegistration}/>
+        </Switch>
+      </Router>
   );
 }
-
 export default App;

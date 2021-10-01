@@ -1,0 +1,40 @@
+import {Link, Paper } from "@material-ui/core";
+import { TextField } from "@material-ui/core";
+import React, {FC, ReactElement, useEffect, useState} from "react";
+import LoginButton from "./button/LoginButton";
+import { useStyles } from "./stylesLogAndSig/Styles";
+
+
+
+const LoginPage:FC<{}> = ():ReactElement => {
+    const [loading, setLoading] = useState(true);
+    const classes = useStyles();
+    useEffect(() => {
+        setLoading(false);
+    },[]);
+
+
+    return(
+        <div className={classes.root}>
+            <Paper elevation={3} className={classes.paper}>
+                <h3 className={classes.h3}>Log In</h3>
+                <div className={classes.username} >
+                    <TextField id="standard-basic" label="Username" variant="standard"  />
+                </div>
+                <div className={classes.password}>
+                    <TextField id="standard-basic" label="Password" variant="standard" />
+                </div>
+                <div className={classes.btn}>
+                    <LoginButton />
+                </div>
+                    <p className={classes.p}>
+                        If you don't have account <Link href={"/signup"}> SignUp </Link>
+                        <div>If you are not a user <Link href={"/regForm"}> Register as User </Link></div>
+                    </p>
+            </Paper>
+
+        </div>
+
+    );
+}
+export default LoginPage;
