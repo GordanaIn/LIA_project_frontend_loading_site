@@ -1,18 +1,7 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import { useStyles } from './buttonStyles/StylesButton';
 
-
-
-const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        button: {
-            alignItems:"center",
-            margin: theme.spacing(1),
-
-        },
-    }),
-);
 
 export default function RegisterButton() {
     const classes = useStyles();
@@ -22,7 +11,7 @@ export default function RegisterButton() {
             <Button
                 variant="contained"
                 color="primary"
-                className={classes.button}
+                className={classes.registerButton}
                 type="submit">
                 Register
             </Button>

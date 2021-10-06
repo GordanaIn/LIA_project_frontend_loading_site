@@ -9,7 +9,7 @@ const SignUpPage:FC<{}> = ():ReactElement => {
 
     return(
         <div className={classes.root} >
-        <SignUpButton/>
+            <SignUpButton/>
         </div>
 
     );

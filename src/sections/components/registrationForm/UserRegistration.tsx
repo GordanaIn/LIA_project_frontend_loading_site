@@ -1,7 +1,7 @@
 import React, { useState} from 'react';
 import {useStyles} from "./RegistrationFormStyle/RegistrationStyle";
 import {Grid, Paper} from "@material-ui/core";
-//import { useForm } from '../loginAndRegister/button/useForm';
+
 import UserService from '../../api/UserService';
 
 enum ROLE {
@@ -32,14 +32,14 @@ const UserRegistration : React.FC<User> = () => {
     const defaulut_roles = [ROLE[0],ROLE[1],ROLE[2],ROLE[3]];
     const onSubmit = (e : React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-       /* let user = {
-            username: values.username,
-            email: values.email,
-            password: values.password,
-            role: {
-                name:values.role
-            },
-        }*/
+        /* let user = {
+             username: values.username,
+             email: values.email,
+             password: values.password,
+             role: {
+                 name:values.role
+             },
+         }*/
         let user = {
             username: username,
             email: email,
@@ -68,15 +68,15 @@ const UserRegistration : React.FC<User> = () => {
                         <input type="password" className={classes.textBox} value={password} onChange={e => setPassword(e.target.value)} />
                     </div>
                     <div className="form-group">
-                    <label htmlFor="password" className={classes.label} > Roles : </label>
-                         <select name="users" id="users" className={classes.combo} defaultValue={ROLE[2]} >
-                             {
-                                 defaulut_roles.map( role=>(
-                                 <option   value={role}  key={role} >
-                                     {role}
-                                 </option>
-                                 )
-                             )}
+                        <label htmlFor="password" className={classes.label} > Roles : </label>
+                        <select name="users" id="users" className={classes.combo} defaultValue={ROLE[2]} >
+                            {
+                                defaulut_roles.map( role=>(
+                                        <option   value={role}  key={role} >
+                                            {role}
+                                        </option>
+                                    )
+                                )}
                         </select>
                     </div>
                     <div className="form-group">

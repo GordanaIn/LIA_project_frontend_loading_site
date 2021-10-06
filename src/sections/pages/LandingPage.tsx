@@ -18,9 +18,9 @@ const LandingPage:FC<{}> = ():ReactElement => {
 
     return(
         <div className={classes.root}>
-            <h2 >Hej och välkommen till LiaLisera</h2>
+
             <LoginPage/>
-         </div>
+        </div>
 
     );
 }

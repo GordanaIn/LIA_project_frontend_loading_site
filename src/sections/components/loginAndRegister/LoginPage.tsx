@@ -15,7 +15,7 @@ const LoginPage:FC<{}> = ():ReactElement => {
 
 
     return(
-        <div className={classes.root}>
+        <div>
             <Paper elevation={3} className={classes.paper}>
                 <h3 className={classes.h3}>Log In</h3>
                 <div className={classes.username} >
@@ -31,17 +31,17 @@ const LoginPage:FC<{}> = ():ReactElement => {
                 </div>
 
                 <div className={classes.btn}>
-                      <LoginButton />
+                    <LoginButton />
                 </div>
 
-                    <p className={classes.p}>
+                <p className={classes.p}>
 
-                        If you don't have account
-                        <Link to="/signUp" className={classes.signUp} style={{ textDecoration: 'none', color: '#15a905' }} >
-                            SignUp
-                        </Link>
+                    If you don't have account
+                    <Link to="/signUp" className={classes.signUp} style={{ textDecoration: 'none', color: '#15a905' }} >
+                        SignUp
+                    </Link>
 
-                    </p>
+                </p>
             </Paper>
 
         </div>

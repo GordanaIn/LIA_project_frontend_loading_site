@@ -1,4 +1,5 @@
-import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";
+import {Theme} from "@mui/material/styles";
+import {makeStyles,createStyles,} from "@material-ui/core/styles";
 export const useStyles = makeStyles((theme: Theme) =>
         createStyles({
             root: {
@@ -38,6 +39,7 @@ export const useStyles = makeStyles((theme: Theme) =>
                 justifyContent: 'center',
                 marginLeft: 100,
                 marginTop: 30,
+
             },
             password:{
                 alignItems: 'center',
@@ -60,6 +62,7 @@ export const useStyles = makeStyles((theme: Theme) =>
                 paddingLeft:38,
                 paddingRight:38,
                 padding:15,
+                backgroundColor:'#d3b03c',
 
             },
             button2:{
@@ -71,6 +74,7 @@ export const useStyles = makeStyles((theme: Theme) =>
                 paddingLeft:17,
                 paddingRight:17,
                 padding:15,
+                backgroundColor:'#d3b03c',
             },
             button3:{
                 alignItems: 'center',
@@ -81,6 +85,7 @@ export const useStyles = makeStyles((theme: Theme) =>
                 paddingLeft:44,
                 paddingRight:44,
                 padding:15,
+                backgroundColor:'#d3b03c',
             },
             signUp:{
                 alignItems: 'center',

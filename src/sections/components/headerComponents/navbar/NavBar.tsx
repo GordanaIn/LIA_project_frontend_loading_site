@@ -1,49 +1,60 @@
 import React, {FC, useEffect, useState} from 'react';
-
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
+import {
+    AppBar,
+    Toolbar,
+    ThemeProvider} from '@mui/material';
+import {IconButton} from "@mui/material";
 import Menu from "./NavMenu";
-import {Grid} from "@material-ui/core";
-import {Link} from 'react-router-dom'
 import useWindowSize from "../windowSize/UseWindowSize";
 import {useStyles} from "./stylesNav/NavStyle";
+import {Link} from "react-router-dom";
+import theme from "./../../../../Theme";
+import {BiSupport, IoHomeOutline,RiContactsBook2Line,IoPeopleOutline} from "react-icons/all";
+import Logo from "../logan/Logo";
+import Grid from '@material-ui/core/Grid';
 
 
-const NavBar: FC<{}>= (props) => {
+const NavBar: FC<{}>= (show) =>{
     const classes = useStyles();
     const [checkWindowSize,setCheckWindowSize] = useState<boolean>();
     const {width,height} = useWindowSize();
     useEffect(()=>{
         width < 600 ? setCheckWindowSize(false): setCheckWindowSize(true)
     }, [width])
-    return (
-        <div className={classes.root}>
-            <AppBar position="static">
+    return(
+    <ThemeProvider theme={theme}>
+        <div className={classes.div2}>
+            <Logo/>
+        </div>
+            <AppBar position="static" color={"primary"} variant={"outlined"} className={classes.appBar}>
                 <Toolbar>
-                    <IconButton edge="start" className={classes.navBarMenuButton} color="inherit" aria-label="menu">
+                    <IconButton  edge="start" className={classes.navBarMenuButton} color="inherit" aria-label="menu">
                         {
-                            checkWindowSize!==true?<Menu/>:null
+                            checkWindowSize!==true?<Menu/> :null
                         }
                     </IconButton>
-                    <Typography variant="h6" className={classes.navBarTitle}>
-                        LiaLisera
-                    </Typography>
-
-                    <Grid container direction ="row" justify="space-around" alignItems="center">
-                        <Grid item>
-                            {checkWindowSize !== false ? <Link style={{ textDecoration: 'none', color: 'inherit' }} className={[classes.navBarMenuColor, classes.linkDecoration].join('')} to="/landingPage" > Home </Link>  :null}
+                    <Grid container direction="row" justify="center" alignItems="center">
+                        <Grid item className={classes.grid}>
+                            {checkWindowSize !== false ?
+                                <Link className={classes.linkDecoration} to="/home" > <IoHomeOutline/> Home</Link> :null}
                         </Grid>
-                        <Grid item>
-                            {checkWindowSize !== false ? <Link style={{ textDecoration: 'none', color: 'inherit' }} className={[classes.navBarMenuColor, classes.linkDecoration].join('')} to="/support"> Support</Link>  :null}
+                        <Grid item className={classes.grid}>
+                            {checkWindowSize !== false ?
+                                <Link className={classes.linkDecoration} to="/home" > <IoPeopleOutline/> About us</Link> :null}
                         </Grid>
-
-                    </Grid>
+                        <Grid item className={classes.grid}>
+                            {checkWindowSize !== false ?
+                                <Link className={classes.linkDecoration} to="/logo" > <RiContactsBook2Line/> Contact </Link> :null}
+                        </Grid>
+                        <Grid item className={classes.grid}>
+                            {checkWindowSize !== false ?
+                                <Link className={classes.linkDecoration} to="/support"><BiSupport/> Support</Link> :null}
+                        </Grid>
+                  </Grid>
                 </Toolbar>
             </AppBar>
-        </div>
-    );
+    </ThemeProvider>
+    )
 }
-
 export default NavBar;
+

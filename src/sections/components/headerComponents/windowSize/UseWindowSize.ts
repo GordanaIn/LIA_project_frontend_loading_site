@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react'
-import {WindowSize} from "./HandleInterface"; //importerar Intercface
+import {WindowSize} from "../../../interfaces/HandleInterface"; //importerar Intercface
 
 
 function useWindowSize(): WindowSize {

@@ -1,5 +1,8 @@
-import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";
-export const useStyles = makeStyles((theme: Theme) =>
+import { Theme} from "@mui/material/styles";
+
+import {makeStyles,createStyles,} from "@material-ui/core/styles";
+
+export const useStyles = makeStyles((theme:Theme) =>
         createStyles({
             root: {
                 display: 'flex',
@@ -19,8 +22,13 @@ export const useStyles = makeStyles((theme: Theme) =>
                 textAlign:'left',
                 alignItems: 'center',
                 justifyContent: 'center',
-                marginLeft:80,
-                fontsize: 15,
+                marginLeft:110,
+
+            },
+            textfield:{
+                alignItems: 'center',
+                justifyContent: 'center',
+
             },
             paper:{
                 alignItems: 'center',
@@ -31,14 +39,14 @@ export const useStyles = makeStyles((theme: Theme) =>
             username:{
                 alignItems: 'center',
                 justifyContent: 'center',
-                marginLeft: 100,
+                marginLeft: 121,
                 marginTop: 30,
             },
             password:{
                 alignItems: 'center',
                 justifyContent: 'center',
                 marginTop: 30,
-                marginLeft: 100,
+                marginLeft: 121,
             },
             h1:{
                 alignItems: 'center',
@@ -53,7 +61,7 @@ export const useStyles = makeStyles((theme: Theme) =>
 
                 alignItems: 'center',
                 justifyContent: 'center',
-                paddingLeft:5,
+                paddingLeft:10,
             },
             textBox:{
                 alignItems: 'center',

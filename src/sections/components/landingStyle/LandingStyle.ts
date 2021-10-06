@@ -1,5 +1,6 @@
-import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";
-export const useStyles = makeStyles((theme: Theme) =>
+import { Theme} from "@mui/material/styles";
+import {makeStyles,createStyles,} from "@material-ui/core/styles";
+export const useStyles = makeStyles((theme:Theme) =>
         createStyles({
             root: {
                 display: 'flex',
@@ -7,7 +8,7 @@ export const useStyles = makeStyles((theme: Theme) =>
                 justifyContent: 'center',
                 background: 'white',
                 '& > *': {
-                    margin: theme.spacing(8),
+                    margin: theme.spacing(5),
                 },
             },
             h1:{
@@ -20,7 +21,7 @@ export const useStyles = makeStyles((theme: Theme) =>
                 textAlign:'left',
                 marginLeft:10,
             },
-           
+
         }),
     )
 ;
