@@ -6,23 +6,31 @@ import { useStyles } from "./stylesLogAndSig/Styles";
 
 
 
-const LoginPage:FC<{}> = ():ReactElement => {
+const LoginPage:FC<{}> = (props):ReactElement => {
     const [loading, setLoading] = useState(true);
+    const [state, setState]=useState(true);
     const classes = useStyles();
     useEffect(() => {
         setLoading(false);
     },[]);
 
-
     return(
         <div>
             <Paper elevation={3} className={classes.paper}>
-                <h3 className={classes.h3}>Log In</h3>
+                <h3 className={classes.h3} data-testid="LogIn">LogIn</h3>
                 <div className={classes.username} >
-                    <TextField id="standard-basic" label="Username" variant="standard"  />
+                    <TextField
+                        id="standard-basic"
+                        label="Username"
+                        variant="standard"
+                        data-testid="input-text" />
                 </div>
                 <div className={classes.password}>
-                    <TextField id="standard-basic" label="Password" variant="standard" />
+                    <TextField
+                        id="standard-basic"
+                        label="Password"
+                        variant="standard"
+                        data-testid="input-text" />
                 </div>
                 <div className={classes.div}>
                     <Link to="/forgetPassword" className={classes.forgetPassword} style={{ textDecoration: 'none', color: '#15a905' }} >

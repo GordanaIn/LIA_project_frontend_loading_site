@@ -9,7 +9,7 @@ import useWindowSize from "../windowSize/UseWindowSize";
 import {useStyles} from "./stylesNav/NavStyle";
 import {Link} from "react-router-dom";
 import theme from "./../../../../Theme";
-import {BiSupport, IoHomeOutline,RiContactsBook2Line,IoPeopleOutline} from "react-icons/all";
+
 import Logo from "../logan/Logo";
 import Grid from '@material-ui/core/Grid';
 
@@ -36,19 +36,19 @@ const NavBar: FC<{}>= (show) =>{
                     <Grid container direction="row" justify="center" alignItems="center">
                         <Grid item className={classes.grid}>
                             {checkWindowSize !== false ?
-                                <Link className={classes.linkDecoration} to="/home" > <IoHomeOutline/> Home</Link> :null}
+                                <Link className={classes.linkDecoration} to="/home" >  Home</Link> :null}
                         </Grid>
                         <Grid item className={classes.grid}>
                             {checkWindowSize !== false ?
-                                <Link className={classes.linkDecoration} to="/home" > <IoPeopleOutline/> About us</Link> :null}
+                                <Link className={classes.linkDecoration} to="/home" >  About us</Link> :null}
                         </Grid>
                         <Grid item className={classes.grid}>
                             {checkWindowSize !== false ?
-                                <Link className={classes.linkDecoration} to="/logo" > <RiContactsBook2Line/> Contact </Link> :null}
+                                <Link className={classes.linkDecoration} to="/home" > Contact </Link> :null}
                         </Grid>
                         <Grid item className={classes.grid}>
                             {checkWindowSize !== false ?
-                                <Link className={classes.linkDecoration} to="/support"><BiSupport/> Support</Link> :null}
+                                <Link className={classes.linkDecoration} to="/support"> Support</Link> :null}
                         </Grid>
                   </Grid>
                 </Toolbar>
