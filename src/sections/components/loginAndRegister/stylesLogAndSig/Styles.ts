@@ -99,6 +99,31 @@ export const useStyles = makeStyles((theme: Theme) =>
             },
             div:{
                 marginTop:10,
+            },
+            buttonRow: {
+                display: 'grid',
+                grid: 'row',
+                marginRight: 5,
+                marginBottom: 5,
+                ['@media (min-width:465px)']: {
+                    float: 'right',
+                },
+                ['@media (max-width:464px)']: {
+                    justifyContent: 'center',
+                    marginTop: 15,
+                    marginLeft: 5
+                }
+            },
+            buttonCancel: {
+                backgroundColor: '#ff7961',
+                textAlign: 'center',
+                marginRight: 5
+            },
+            buttonOK: {
+                variant: 'outlined',
+                size: 'small',
+                backgroundColor: '#66bb6a',
+                textAlign: 'center',
             }
 
         }),

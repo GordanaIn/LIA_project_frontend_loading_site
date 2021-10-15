@@ -11,8 +11,10 @@ const Theme = createTheme ({
                 secondary:{
                     main:'#4C525C',
                 },
+            error:{
+                main:'#750505'
+            }
         },
-
 
 });
 export default Theme;

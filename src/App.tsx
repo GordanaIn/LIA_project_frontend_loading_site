@@ -10,6 +10,7 @@ import ForgetPassword from './sections/pages/ForgetPassword';
 
 
 import Logo from "./sections/components/headerComponents/logan/Logo";
+import ChangePassword from "./sections/pages/ChangePassword";
 
 
 
@@ -25,7 +26,8 @@ const App:FC<{}> = () =>{
           <Route path="/logo" exact={true} component={Logo}/>
           <Route path="/registrationStudent" exact={true} component={StudentRegistration}/>
           <Route path="/support" exact={true} component={Support}/>
-          <Route path="/forgetPassword" exact={true} component={ForgetPassword}/>
+            <Route path="/forgetPassword" exact={true} component={ForgetPassword}/>
+            <Route exact path="/forgetPasswordxx" component={ChangePassword}/>
         </Switch>
       </Router>
   );
