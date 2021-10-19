@@ -8,7 +8,7 @@ import Menu from "./NavMenu";
 import useWindowSize from "../windowSize/UseWindowSize";
 import {useStyles} from "./stylesNav/NavStyle";
 import {Link} from "react-router-dom";
-import theme from "./../../../../Theme";
+import theme from "../../../../Theme";
 
 import Logo from "../logan/Logo";
 import Grid from '@material-ui/core/Grid';
@@ -22,10 +22,10 @@ const NavBar: FC<{}>= (show) =>{
         width < 600 ? setCheckWindowSize(false): setCheckWindowSize(true)
     }, [width])
     return(
-    <ThemeProvider theme={theme}>
-        <div className={classes.div2}>
-            <Logo/>
-        </div>
+        <ThemeProvider theme={theme}>
+            <div className={classes.div2}>
+                <Logo/>
+            </div>
             <AppBar position="static" color={"primary"} variant={"outlined"} className={classes.appBar}>
                 <Toolbar>
                     <IconButton  edge="start" className={classes.navBarMenuButton} color="inherit" aria-label="menu">
@@ -36,24 +36,24 @@ const NavBar: FC<{}>= (show) =>{
                     <Grid container direction="row" justify="center" alignItems="center">
                         <Grid item className={classes.grid}>
                             {checkWindowSize !== false ?
-                                <Link className={classes.linkDecoration} to="/home" >  Home</Link> :null}
+                                <Link className={classes.linkDecoration} to="/home" > Home</Link> :null}
                         </Grid>
                         <Grid item className={classes.grid}>
                             {checkWindowSize !== false ?
-                                <Link className={classes.linkDecoration} to="/home" >  About us</Link> :null}
+                                <Link className={classes.linkDecoration} to="/aboutUs" >About us</Link> :null}
                         </Grid>
                         <Grid item className={classes.grid}>
                             {checkWindowSize !== false ?
-                                <Link className={classes.linkDecoration} to="/home" > Contact </Link> :null}
+                                <Link className={classes.linkDecoration} to="/contact" > Contact </Link> :null}
                         </Grid>
                         <Grid item className={classes.grid}>
                             {checkWindowSize !== false ?
-                                <Link className={classes.linkDecoration} to="/support"> Support</Link> :null}
+                                <Link className={classes.linkDecoration} to="/support" > Support </Link> :null}
                         </Grid>
-                  </Grid>
+                    </Grid>
                 </Toolbar>
             </AppBar>
-    </ThemeProvider>
+        </ThemeProvider>
     )
 }
 export default NavBar;

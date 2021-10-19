@@ -18,7 +18,6 @@ const LandingPage:FC<{}> = ():ReactElement => {
 
     return(
         <div className={classes.root}>
-        <h2 data-testId="heder">Välkomen</h2>
             <LoginPage/>
         </div>
 

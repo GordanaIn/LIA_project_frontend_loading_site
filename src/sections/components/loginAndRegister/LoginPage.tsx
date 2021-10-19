@@ -17,7 +17,7 @@ const LoginPage:FC<{}> = (props):ReactElement => {
     return(
         <div>
             <Paper elevation={3} className={classes.paper}>
-                <h3 className={classes.h3} data-testid="LogIn">LogIn</h3>
+                <h1 className={classes.h3} data-testid="LogIn">LogIn</h1>
                 <div className={classes.username} >
                     <TextField
                         id="standard-basic"

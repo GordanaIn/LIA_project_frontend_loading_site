@@ -62,7 +62,7 @@ export const useStyles = makeStyles((theme: Theme) =>
                 paddingLeft:38,
                 paddingRight:38,
                 padding:15,
-                backgroundColor:'#d3b03c',
+                backgroundColor:'#4C525C',
 
             },
             button2:{
@@ -74,7 +74,7 @@ export const useStyles = makeStyles((theme: Theme) =>
                 paddingLeft:17,
                 paddingRight:17,
                 padding:15,
-                backgroundColor:'#d3b03c',
+                backgroundColor:'#4C525C',
             },
             button3:{
                 alignItems: 'center',
@@ -85,7 +85,7 @@ export const useStyles = makeStyles((theme: Theme) =>
                 paddingLeft:44,
                 paddingRight:44,
                 padding:15,
-                backgroundColor:'#d3b03c',
+                backgroundColor:'#4C525C',
             },
             signUp:{
                 alignItems: 'center',

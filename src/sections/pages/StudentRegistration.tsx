@@ -76,6 +76,7 @@ const StudentRegistration: React.FC<{}> = () => {
             <Paper elevation={3} className={classes.paper}>
                 <form   onSubmit={e => onSubmit(e)}>
                     <h3 className={classes.h3}>Register as a Student</h3>
+                    <div className={classes.cont}>
                     <div className={classes.username} >
                         <TextField className={classes.textfield} id="standard-basic" label="First Name" variant="standard"   value={firstName}
                                    onChange={e => setFirstName(e.target.value)}/>
@@ -119,6 +120,7 @@ const StudentRegistration: React.FC<{}> = () => {
                         </Link>
 
                     </p>
+                    </div>
                 </form>
             </Paper>
         </div>

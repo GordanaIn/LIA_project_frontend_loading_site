@@ -29,7 +29,7 @@ const NavMenu: FC<{}>= () =>{
                     <MenuIcon style={{fontSize:50}}  className={classes.navBarMenu}/>
                 </Button>
                 <Menu open={Boolean(anchorEl)}
-                      color="#080E15FF"
+                      color="secoundary"
                       id ="menu"
                       keepMounted
                       anchorEl={anchorEl}

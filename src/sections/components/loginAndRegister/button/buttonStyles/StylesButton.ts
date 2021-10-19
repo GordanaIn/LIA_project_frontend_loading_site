@@ -9,13 +9,15 @@ export const useStyles = makeStyles((theme:Theme) =>
         loginButton: {
             alignItems:"center",
             margin: theme.spacing(1),
-            backgroundColor:'#d3b03c',
+            backgroundColor:'#4C525C',
+            color:"#fff"
 
         },
         registerButton:{
             alignItems:"center",
             margin: theme.spacing(1),
-            backgroundColor:'#d3b03c',
+            backgroundColor:'#4C525C',
+            color:"#fff",
         },
 
     }),

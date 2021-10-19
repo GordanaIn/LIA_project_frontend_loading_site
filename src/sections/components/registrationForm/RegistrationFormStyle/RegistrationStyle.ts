@@ -1,6 +1,6 @@
 import { Theme} from "@mui/material/styles";
 
-import {makeStyles,createStyles,} from "@material-ui/core/styles";
+import {makeStyles,createStyles} from "@material-ui/core/styles";
 
 export const useStyles = makeStyles((theme:Theme) =>
         createStyles({
@@ -22,7 +22,7 @@ export const useStyles = makeStyles((theme:Theme) =>
                 textAlign:'left',
                 alignItems: 'center',
                 justifyContent: 'center',
-                marginLeft:110,
+                marginLeft:105,
 
             },
             textfield:{
@@ -38,15 +38,13 @@ export const useStyles = makeStyles((theme:Theme) =>
             },
             username:{
                 alignItems: 'center',
-                justifyContent: 'center',
-                marginLeft: 121,
                 marginTop: 30,
+                marginLeft:122,
             },
             password:{
                 alignItems: 'center',
-                justifyContent: 'center',
                 marginTop: 30,
-                marginLeft: 121,
+                marginLeft:122,
             },
             h1:{
                 alignItems: 'center',
@@ -54,14 +52,17 @@ export const useStyles = makeStyles((theme:Theme) =>
                 textAlign:'center',
             },
             label:{
+                alignItems: 'center',
                 textAlign:'left',
                 marginLeft:20,
             },
             button:{
-
                 alignItems: 'center',
                 justifyContent: 'center',
-                paddingLeft:10,
+            },
+            cont:{
+                alignItems: 'center',
+                justifyContent: 'center',
             },
             textBox:{
                 alignItems: 'center',
@@ -76,7 +77,7 @@ export const useStyles = makeStyles((theme:Theme) =>
                 alignItems: 'center',
                 justifyContent: 'center',
                 marginTop: 30,
-                marginLeft: 140,
+                marginLeft:142,
             },
         }),
     )

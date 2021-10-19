@@ -8,7 +8,7 @@ export const useStyles = makeStyles((theme: Theme) =>
                 flexGrow: 1,
             },
             navBarMenuButton: {
-                marginLeft: theme.spacing(50),
+                marginRight: theme.spacing(1),
             },
             navBarTitle: {
                 flexGrow: 1,
@@ -17,36 +17,42 @@ export const useStyles = makeStyles((theme: Theme) =>
             div:{
                 justify:"center",
                 alignItems:"center",
-
             },
             div2:{
                 justify:"center",
                 alignItems:"center",
-
-
+            },
+            div3:{
+                justify:"center",
+                alignItems:"center",
+                marginTop:-140,
+                marginLeft:1250
             },
             navBarMenu: {
+                justify:"center",
+                alignItems:"center",
                 color: '#fafafa',
                 marginLeft: theme.spacing(30),
                 marginTop:20,
 
             },
             appBar:{
-                width:200,
-                height:105,
-                marginTop: -153,
+                width:220,
+                height:130,
+                marginTop: -193,
                 alignItems:"center",
+
 
             },
             linkDecoration: {
                 textDecoration: 'none',
                 color:"#fff",
                 marginRight: theme.spacing(10),
-               marginTop: 20
+                marginTop: 20
             },
             dropDownMenuColor: {
                 color: '#ffffff',
-                backgroundColor:'#d3b03c',
+                backgroundColor:'#2f2f31',
                 marginRight: theme.spacing(2),
             },
             paper: {
@@ -68,6 +74,8 @@ export const useStyles = makeStyles((theme: Theme) =>
                 justify:"center",
                 alignItems:"center",
                 fontSize:20,
+                marginTop: 50,
+                marginRight:-59
             },
             sidenav: {
                 background: "#011627",
@@ -82,8 +90,16 @@ export const useStyles = makeStyles((theme: Theme) =>
                 left: 0,
             },
             logo: {
-                width: 190,
-                height:150,
+                width: 260,
+                height:190,
+                marginLeft:-24,
+
+
+            },
+            logo1: {
+                width: 220,
+                height:140,
+                marginLeft:20
 
 
             },
@@ -97,6 +113,9 @@ export const useStyles = makeStyles((theme: Theme) =>
                 alignItems: 'center',
                 fontSize: 40,
                 color: 'black',
+            },
+            navBarMenuColor:{
+                color: '#fafafa'
             }
         }),
     )

@@ -29,6 +29,7 @@ export default function SignUpButton() {
                 <h3 className={classes.h3}>Register as</h3>
                 <Button
                     variant="contained"
+
                     className={classes.button1}
                     type="submit"
                 >
@@ -41,7 +42,7 @@ export default function SignUpButton() {
 
                 <Button
                     variant="contained"
-                    color="primary"
+
                     className={classes.button2}
                     type="submit"
                     onClick={()=>arbetsgivareHandle}
@@ -50,7 +51,7 @@ export default function SignUpButton() {
                 </Button>
                 <Button
                     variant="contained"
-                    color="primary"
+
                     className={classes.button3}
                     type="submit"
                     onClick={()=>skolanHandle
