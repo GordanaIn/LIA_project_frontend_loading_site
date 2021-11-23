@@ -9,7 +9,7 @@ import UserService from "../../api/UserService";
 
 const CompanyRegistration: React.FC<{}> = () => {
     const classes = useStyles();
-    const [companyName, setCompanyName] = useState("");
+    const [name, setName] = useState("");
     const [organizationNumber, setOrganizationNumber] = useState("");
     const [companyEmail, setCompanyEmail] = useState("");
     const [userEmail, setUserEmail] = useState("");
@@ -19,7 +19,7 @@ const CompanyRegistration: React.FC<{}> = () => {
         e.preventDefault();
 
         let company= {
-            companyName: companyName,
+            name: name,
             organizationNumber: organizationNumber,
             companyEmail: companyEmail,
             userEmail: userEmail,
@@ -36,8 +36,8 @@ const CompanyRegistration: React.FC<{}> = () => {
                         <h3 className={classes.h3}>Register as a Company</h3>
                         <div className={classes.cont}>
                             <div className={classes.username} >
-                                <TextField className={classes.textfield} id="standard-basic" label="Company Name" variant="standard"   value={companyName}
-                                           onChange={e => setCompanyName(e.target.value)}/>
+                                <TextField className={classes.textfield} id="standard-basic" label="Company Name" variant="standard"   value={name}
+                                           onChange={e => setName(e.target.value)}/>
                             </div>
                             <div className={classes.username} >
                                 <TextField id="standard-basic" label="Organization Number" variant="standard"   value={organizationNumber}

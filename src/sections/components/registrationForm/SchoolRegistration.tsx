@@ -10,7 +10,7 @@ import UserService from "../../api/UserService";
 
 const SchoolRegistration: React.FC<{}> = () => {
     const classes = useStyles();
-    const [schoolName, setSchoolName] = useState("");
+    const [name, setName] = useState("");
     const [organizationNumber, setOrganizationNumber] = useState("");
     const [schoolEmail, setSchoolEmail] = useState("");
     const [phone, sePhone] = useState("");
@@ -21,7 +21,7 @@ const SchoolRegistration: React.FC<{}> = () => {
         e.preventDefault();
 
         let school= {
-            schoolName: schoolName,
+            name: name,
             organizationNumber: organizationNumber,
             schoolEmail: schoolEmail,
             userEmail: userEmail,
@@ -39,8 +39,8 @@ const SchoolRegistration: React.FC<{}> = () => {
                         <h3 className={classes.h3}>Register as a School</h3>
                         <div className={classes.cont}>
                             <div className={classes.username} >
-                                <TextField className={classes.textfield} id="standard-basic" label="School Name" variant="standard"   value={schoolName}
-                                           onChange={e => setSchoolName(e.target.value)}/>
+                                <TextField className={classes.textfield} id="standard-basic" label="School Name" variant="standard"   value={name}
+                                           onChange={e => setName(e.target.value)}/>
                             </div>
                             <div className={classes.username} >
                                 <TextField id="standard-basic" label="Organization Number" variant="standard"   value={organizationNumber}
