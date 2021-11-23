@@ -34,7 +34,7 @@ export const useStyles = makeStyles((theme:Theme) =>
                 alignItems: 'center',
                 justifyContent: 'center',
                 width:400,
-                height:850,
+                height:950,
             },
             username:{
                 alignItems: 'center',

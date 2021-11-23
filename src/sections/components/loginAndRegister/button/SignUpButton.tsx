@@ -47,7 +47,10 @@ export default function SignUpButton() {
                     type="submit"
                     onClick={()=>arbetsgivareHandle}
                 >
-                    Arbetsgivare
+                    <Link to="/registrationCompany" style={{ textDecoration: 'none', color: 'inherit' }} >
+                        Arbetsgivare
+                    </Link>
+
                 </Button>
                 <Button
                     variant="contained"
@@ -57,7 +60,10 @@ export default function SignUpButton() {
                     onClick={()=>skolanHandle
                     }
                 >
-                    Skolan
+                    <Link to="/registrationSchool" style={{ textDecoration: 'none', color: 'inherit' }} >
+                        Skolan
+                    </Link>
+
                 </Button>
 
             </Paper>

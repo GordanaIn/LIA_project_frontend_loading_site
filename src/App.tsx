@@ -13,7 +13,8 @@ import Logo from "./sections/components/headerComponents/logan/Logo";
 import Footer from "./sections/components/headerComponents/Footer";
 import Contact from "./sections/pages/Contact";
 import AboutUs from "./sections/pages/AboutUs";
-
+import CompanyRegistration from "./sections/components/registrationForm/CompanyRegistration";
+import SchoolRegistration from "./sections/components/registrationForm/SchoolRegistration";
 
 
 
@@ -27,6 +28,8 @@ const App:FC<{}> = () =>{
           <Route path="/signup" exact={true} component={SignUpPage}/>
           <Route path="/logo" exact={true} component={Logo}/>
           <Route path="/registrationStudent" exact={true} component={StudentRegistration}/>
+          <Route path="/registrationCompany" exact={true} component={CompanyRegistration}/>
+          <Route path="/registrationSchool" exact={true} component={SchoolRegistration}/>
           <Route path="/support" exact={true} component={Support}/>
           <Route path="/contact" exact={true} component={Contact}/>
           <Route path="/aboutUs" exact={true} component={AboutUs}/>

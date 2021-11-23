@@ -1,0 +1,10 @@
+
+export interface  IStudent {
+    firstName:String;
+    lastName:String;
+    email:String;
+    phone:String;
+    username:String;
+    password:String;
+    schoolName:String;
+}
