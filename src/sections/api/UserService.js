@@ -1,6 +1,5 @@
 
 const UserService = {
-
     saveStudent:async (student)=>{
         return  await (await fetch('http://localhost:8081/api/student/', {
             method: 'POST',
@@ -26,6 +25,15 @@ const UserService = {
                 'Content-type': 'application/json',
             },
             body: JSON.stringify(school)
+        })).json()
+    },
+    updatePassword:async(modifyPassword)=>{
+        return  await (await fetch('http://localhost:8081/api/student/modifyPassword/', {
+            method: 'PATCH',
+            headers: {
+                'Content-type': 'application/json',
+            },
+            body: JSON.stringify(modifyPassword)
         })).json()
     },
     login: async (login)=>{

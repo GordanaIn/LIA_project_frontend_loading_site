@@ -18,7 +18,6 @@ const Footer = () =>{
                     <FooterPhoto/>
                 </div>
                 <Toolbar style={{alignItems:"center"}}>
-
             </Toolbar>
         </AppBar>
         </ThemeProvider>

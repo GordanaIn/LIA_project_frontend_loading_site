@@ -1,3 +1,4 @@
+
 import React, { useState} from 'react';
 import {useStyles} from "./RegistrationFormStyle/RegistrationStyle";
 import {Grid, Paper} from "@material-ui/core";
@@ -22,7 +23,6 @@ interface User {
 };
 const UserRegistration : React.FC<User> = () => {
     const classes = useStyles();
-    //const [values, handleChanege] = useForm({username:"", email:"", password:"",role:{name:role.User}});
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -32,14 +32,6 @@ const UserRegistration : React.FC<User> = () => {
     const defaulut_roles = [ROLE[0],ROLE[1],ROLE[2],ROLE[3]];
     const onSubmit = (e : React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        /* let user = {
-             username: values.username,
-             email: values.email,
-             password: values.password,
-             role: {
-                 name:values.role
-             },
-         }*/
         let user = {
             username: username,
             email: email,
@@ -71,7 +63,7 @@ const UserRegistration : React.FC<User> = () => {
                         <label htmlFor="password" className={classes.label} > Roles : </label>
                         <select name="users" id="users" className={classes.combo} defaultValue={ROLE[2]} >
                             {
-                                defaulut_roles.map( role=>(
+                                roles.map( role=>(
                                         <option   value={role}  key={role} >
                                             {role}
                                         </option>
@@ -91,3 +83,4 @@ const UserRegistration : React.FC<User> = () => {
 
 }
 export default UserRegistration;
+

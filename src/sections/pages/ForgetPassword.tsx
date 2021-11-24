@@ -3,9 +3,6 @@ import {useStyles} from "../components/loginAndRegister/stylesLogAndSig/Styles";
 import {Paper} from "@material-ui/core";
 
 
-
-
-
 const ForgetPassword:FC<{}> = ():ReactElement => {
     const classes = useStyles();
 

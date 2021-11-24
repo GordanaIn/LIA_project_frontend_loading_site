@@ -1,7 +1,6 @@
 import React, {FC, useEffect, useState} from 'react';
 import {useStyles} from "../components/registrationForm/RegistrationFormStyle/RegistrationStyle";
-import {InputLabel, Paper, TextField} from "@mui/material";
-import Select from '@mui/material/Select';
+import { Paper, TextField} from "@mui/material";
 
 import {Link} from "react-router-dom";
 import RegisterButton from "./../components/loginAndRegister/button/RegisterButton";
@@ -31,7 +30,8 @@ const StudentRegistration: React.FC<{}> = () => {
           password:password,
           schoolName: schoolName
          };
-       let response= UserService.saveStudent(stud).then(res=>console.log(res)).catch(err=>console.log(err));
+         UserService.saveStudent(stud).then(res=>alert("Registration successful")).catch(err=>console.log(err));
+       // clear the value and redirect to the login page
     }
     return (
         <ThemeProvider theme={theme}>
@@ -49,7 +49,7 @@ const StudentRegistration: React.FC<{}> = () => {
                                    onChange={e => setLastName(e.target.value)}/>
                     </div>
                     <div className={classes.username} >
-                        <TextField id="standard-basic" label="Email" variant="standard"   value={email}
+                        <TextField  type={email} id="standard-basic" label="Email" variant="standard"   value={email}
                                    onChange={e => setEmail(e.target.value)}/>
                     </div>
                     <div className={classes.username} >
@@ -61,7 +61,7 @@ const StudentRegistration: React.FC<{}> = () => {
                                        onChange={e => setSchoolName(e.target.value)}/>
                     </div>
                     <div className={classes.username} >
-                        <TextField id="standard-basic" label="Username" variant="standard" value={username}
+                        <TextField  type={username} id="standard-basic" label="Username" variant="standard" value={username}
                                    onChange={e => setUsername(e.target.value)} />
                     </div>
                     <div className={classes.password}>

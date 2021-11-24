@@ -26,7 +26,7 @@ const CompanyRegistration: React.FC<{}> = () => {
             username:username,
             password:password
         };
-        let response= UserService.saveCompany(company).then(res=>console.log(res)).catch(err=>console.log(err));
+        let response= UserService.saveCompany(company).then(res=>alert("Registration successful")).catch(err=>console.log(err));
     }
     return (
         <ThemeProvider theme={theme}>
