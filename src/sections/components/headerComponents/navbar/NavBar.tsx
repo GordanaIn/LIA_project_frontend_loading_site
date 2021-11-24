@@ -50,10 +50,7 @@ const NavBar: FC<{}>= (show) =>{
                             {checkWindowSize !== false ?
                                 <Link className={classes.linkDecoration} to="/support" > Support </Link> :null}
                         </Grid>
-                        <Grid item className={classes.grid}>
-                            {checkWindowSize !== false ?
-                                <Link className={classes.linkDecoration} to="/forgetPassword" > Forget Password </Link> :null}
-                        </Grid>
+
                     </Grid>
                 </Toolbar>
             </AppBar>
