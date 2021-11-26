@@ -8,13 +8,9 @@ import theme from "../../../../Theme";
 
 export default function SignUpButton() {
 
-
     const classes = useStyles();
     const [navigation, setNavigation] = useState();
 
-    function studentHandle () {
-
-    }
     function arbetsgivareHandle () {
 
     }

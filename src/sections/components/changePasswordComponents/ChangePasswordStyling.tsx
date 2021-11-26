@@ -1,6 +1,4 @@
 import {createStyles, makeStyles, Theme, withTheme} from "@material-ui/core/styles";
-// import styled from "styled-components";
-// import Button from "mui-button";
 
 export const useStyles = makeStyles((theme: Theme) =>
     createStyles({
