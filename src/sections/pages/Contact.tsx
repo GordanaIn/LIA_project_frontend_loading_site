@@ -4,7 +4,6 @@ import {Paper} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 
 
-
 const Contact:FC<{}> = ():ReactElement => {
     const classes = useStyles();
 

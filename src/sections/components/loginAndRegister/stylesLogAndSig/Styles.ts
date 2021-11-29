@@ -31,8 +31,8 @@ export const useStyles = makeStyles((theme: Theme) =>
             paper:{
                 alignItems: 'center',
                 justifyContent: 'center',
-                width:400,
-                height:500,
+                width:370,
+                height:370,
             },
             username:{
                 alignItems: 'center',

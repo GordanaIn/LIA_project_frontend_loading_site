@@ -2,73 +2,36 @@ import React, {FC, useEffect, useState} from 'react';
 import {useStyles} from "../components/registrationForm/RegistrationFormStyle/RegistrationStyle";
 import { Paper, TextField} from "@mui/material";
 
-import {Link, Route} from "react-router-dom";
+import {Link} from "react-router-dom";
 import RegisterButton from "./../components/loginAndRegister/button/RegisterButton";
 import UserService from "../api/UserService";
 import theme from "../../Theme";
 import { ThemeProvider } from '@material-ui/core/styles';
 
-
-
-
-interface user{
-    username:String,
-    email:String,
-    password:String,
-}
-interface Student {
-    userID:{
-        username:String,
-        email:String,
-        password:String,
-    },
-    firstName: string,
-    lastName:  string,
-    phone: string,
-    schoolName: string,
-    eduction:string,
-};
-
-
 const StudentRegistration: React.FC<{}> = () => {
     const classes = useStyles();
-
-    const [firstName, setFirstName] = useState("");
+    const [firstName, setFirstName] = useState(" ");
     const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [phone, setPhone] = useState("");
     const [schoolName, setSchoolName] = useState("");
-    const [education, setEduction] = useState("");
 
     const onSubmit = (e : React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-
-        let user={
-            username:username,
-            email:email,
-            password:password,
-        }
-        let student={
-            userId:{
-
-            },
-            firstName: firstName,
-            lastName: lastName,
-            email: email,
-            phone: phone,
-            schoolName: schoolName,
-            eduction:education,
-        }
-        console.log(user);
-        UserService.saveUser(user).then(res=>console.log(res)).catch(err=>console.log(err));
-        //StudentClient.addUser(user).then(res=>console.log(res)).catch(err=>console.log(err));
-
-        // SetStudent(person);
-        //console.log(stud.fName, stud.lName, stud.email, stud.pNumber);
-        // console.log(student?.fName, student?.lName, student?.email, student?.phone, student?.street, student?.postCode, student?.city);
+       let stud= {
+          firstName: firstName,
+          lastName: lastName,
+          email: email,
+          phone: phone,
+          username:username,
+          password:password,
+          schoolName: schoolName
+         };
+         UserService.saveStudent(stud).then(res=>alert("Registration successful")).catch(err=>console.log(err));
+       // clear the value and redirect to the login page
     }
     return (
         <ThemeProvider theme={theme}>
@@ -86,7 +49,7 @@ const StudentRegistration: React.FC<{}> = () => {
                                    onChange={e => setLastName(e.target.value)}/>
                     </div>
                     <div className={classes.username} >
-                        <TextField id="standard-basic" label="Email" variant="standard"   value={email}
+                        <TextField  type={email} id="standard-basic" label="Email" variant="standard"   value={email}
                                    onChange={e => setEmail(e.target.value)}/>
                     </div>
                     <div className={classes.username} >
@@ -94,19 +57,15 @@ const StudentRegistration: React.FC<{}> = () => {
                                    onChange={e => setPhone(e.target.value)}/>
                     </div>
                     <div className={classes.username} >
-                        <TextField id="standard-basic" label="School Name" variant="standard"   value={schoolName}
-                                   onChange={e => setSchoolName(e.target.value)}/>
+                            <TextField id="standard-basic" label="School Name" variant="standard"   value={schoolName}
+                                       onChange={e => setSchoolName(e.target.value)}/>
                     </div>
                     <div className={classes.username} >
-                        <TextField id="standard-basic" label="Eduction" variant="standard" value={education}
-                                   onChange={e => setEduction(e.target.value)} />
-                    </div>
-                    <div className={classes.username} >
-                        <TextField id="standard-basic" label="Username" variant="standard" value={username}
+                        <TextField  type={username} id="standard-basic" label="Username" variant="standard" value={username}
                                    onChange={e => setUsername(e.target.value)} />
                     </div>
                     <div className={classes.password}>
-                        <TextField id="standard-basic" label="Password" variant="standard" value={password}
+                        <TextField id="standard-basic" type={"password"} label="Password" variant="standard" value={password}
                                    onChange={e => setPassword(e.target.value)}/>
                     </div>
                     <div className={classes.btn}>
@@ -118,7 +77,6 @@ const StudentRegistration: React.FC<{}> = () => {
                         <Link to="home" className={classes.button} style={{ textDecoration: 'none', color: '#15a905' }} >
                             Login
                         </Link>
-
                     </p>
                     </div>
                 </form>

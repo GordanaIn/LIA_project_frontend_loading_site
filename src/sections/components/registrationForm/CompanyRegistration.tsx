@@ -1,45 +1,42 @@
 import React, {useState} from "react";
+import {useStyles} from "./RegistrationFormStyle/RegistrationStyle";
 import {ThemeProvider} from "@material-ui/core/styles";
 import theme from "../../../Theme";
 import {Paper, TextField} from "@mui/material";
 import RegisterButton from "../loginAndRegister/button/RegisterButton";
 import {Link} from "react-router-dom";
-import {useStyles} from "./RegistrationFormStyle/RegistrationStyle";
 import UserService from "../../api/UserService";
 
-
-const SchoolRegistration: React.FC<{}> = () => {
+const CompanyRegistration: React.FC<{}> = () => {
     const classes = useStyles();
     const [name, setName] = useState("");
     const [organizationNumber, setOrganizationNumber] = useState("");
-    const [schoolEmail, setSchoolEmail] = useState("");
-    const [phone, sePhone] = useState("");
+    const [companyEmail, setCompanyEmail] = useState("");
     const [userEmail, setUserEmail] = useState("");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const onSubmit = (e : React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        let school= {
+        let company= {
             name: name,
             organizationNumber: organizationNumber,
-            schoolEmail: schoolEmail,
+            companyEmail: companyEmail,
             userEmail: userEmail,
-            phone:phone,
             username:username,
             password:password
         };
-       UserService.saveSchool(school).then(res=>alert("Registration successful")).catch(err=>console.log(err));
+        let response= UserService.saveCompany(company).then(res=>alert("Registration successful")).catch(err=>console.log(err));
     }
     return (
         <ThemeProvider theme={theme}>
             <div className={classes.root}>
                 <Paper elevation={3} className={classes.paper}>
                     <form   onSubmit={e => onSubmit(e)}>
-                        <h3 className={classes.h3}>Register as a School</h3>
+                        <h3 className={classes.h3}>Register as a Company</h3>
                         <div className={classes.cont}>
                             <div className={classes.username} >
-                                <TextField className={classes.textfield} id="standard-basic" label="School Name" variant="standard"   value={name}
+                                <TextField className={classes.textfield} id="standard-basic" label="Company Name" variant="standard"   value={name}
                                            onChange={e => setName(e.target.value)}/>
                             </div>
                             <div className={classes.username} >
@@ -47,12 +44,8 @@ const SchoolRegistration: React.FC<{}> = () => {
                                            onChange={e => setOrganizationNumber(e.target.value)}/>
                             </div>
                             <div className={classes.username} >
-                                <TextField id="standard-basic" label="School Email" variant="standard"   value={schoolEmail}
-                                           onChange={e => setSchoolEmail(e.target.value)}/>
-                            </div>
-                            <div className={classes.username} >
-                                <TextField id="standard-basic" label="Phone" variant="standard"   value={phone}
-                                           onChange={e => sePhone(e.target.value)}/>
+                                <TextField id="standard-basic" label="Company Email" variant="standard"   value={companyEmail}
+                                           onChange={e => setCompanyEmail(e.target.value)}/>
                             </div>
                             <div className={classes.username} >
                                 <TextField id="standard-basic" label="User Email" variant="standard"   value={userEmail}
@@ -84,4 +77,4 @@ const SchoolRegistration: React.FC<{}> = () => {
         </ThemeProvider>
     );
 }
-export default SchoolRegistration;
+export default CompanyRegistration;

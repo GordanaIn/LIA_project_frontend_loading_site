@@ -8,13 +8,9 @@ import theme from "../../../../Theme";
 
 export default function SignUpButton() {
 
-
     const classes = useStyles();
     const [navigation, setNavigation] = useState();
 
-    function studentHandle () {
-
-    }
     function arbetsgivareHandle () {
 
     }
@@ -47,7 +43,10 @@ export default function SignUpButton() {
                     type="submit"
                     onClick={()=>arbetsgivareHandle}
                 >
-                    Arbetsgivare
+                    <Link to="/registrationCompany" style={{ textDecoration: 'none', color: 'inherit' }} >
+                        Arbetsgivare
+                    </Link>
+
                 </Button>
                 <Button
                     variant="contained"
@@ -57,7 +56,10 @@ export default function SignUpButton() {
                     onClick={()=>skolanHandle
                     }
                 >
-                    Skolan
+                    <Link to="/registrationSchool" style={{ textDecoration: 'none', color: 'inherit' }} >
+                        Skolan
+                    </Link>
+
                 </Button>
 
             </Paper>

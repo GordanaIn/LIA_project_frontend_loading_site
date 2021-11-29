@@ -3,8 +3,6 @@ import {
     AppBar,
     Toolbar,
     ThemeProvider} from '@mui/material';
-import {IconButton} from "@mui/material";
-import Menu from "./NavMenu";
 import useWindowSize from "../windowSize/UseWindowSize";
 import {useStyles} from "./stylesNav/NavStyle";
 import {Link} from "react-router-dom";
@@ -26,14 +24,14 @@ const NavBar: FC<{}>= (show) =>{
             <div className={classes.div2}>
                 <Logo/>
             </div>
-            <AppBar position="static" color={"primary"} variant={"outlined"} className={classes.appBar}>
+            <AppBar position="static" color={"primary"}  className={classes.appBar}>
                 <Toolbar>
-                    <IconButton  edge="start" className={classes.navBarMenuButton} color="inherit" aria-label="menu">
+                 {/*   <IconButton  edge="start" className={classes.navBarMenuButton} color="inherit" aria-label="menu">
                         {
                             checkWindowSize!==true?<Menu/> :null
                         }
-                    </IconButton>
-                    <Grid container direction="row" justify="center" alignItems="center">
+                    </IconButton>*/}
+                    <Grid container direction="row"  alignItems="center">
                         <Grid item className={classes.grid}>
                             {checkWindowSize !== false ?
                                 <Link className={classes.linkDecoration} to="/home" > Home</Link> :null}
@@ -50,6 +48,7 @@ const NavBar: FC<{}>= (show) =>{
                             {checkWindowSize !== false ?
                                 <Link className={classes.linkDecoration} to="/support" > Support </Link> :null}
                         </Grid>
+
                     </Grid>
                 </Toolbar>
             </AppBar>

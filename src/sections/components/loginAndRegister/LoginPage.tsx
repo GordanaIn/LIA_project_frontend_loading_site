@@ -3,15 +3,28 @@ import {Link} from 'react-router-dom';
 import React, {FC, ReactElement, useEffect, useState} from "react";
 import LoginButton from "./button/LoginButton";
 import { useStyles } from "./stylesLogAndSig/Styles";
+import UserService from "../../api/UserService";
 
 
 
 const LoginPage:FC<{}> = (props):ReactElement => {
     const [loading, setLoading] = useState(true);
     const [state, setState]=useState(true);
+    const [username, setUserName]=useState("");
+    const [password, setPassword]=useState("");
     const classes = useStyles();
+
     useEffect(() => {
+        let login={
+            username:username,
+            password:password,
+        }
+        console.log(login)
         setLoading(false);
+        let response=UserService.login(login).then(res=>console.log(res)).catch(err=>console.log(err));
+        setLoading(true);
+        console.log(login)
+        console.log(response)
     },[]);
 
     return(
@@ -23,14 +36,18 @@ const LoginPage:FC<{}> = (props):ReactElement => {
                         id="standard-basic"
                         label="Username"
                         variant="standard"
-                        data-testid="input-text" />
+                        data-testid="input-text"
+                        onChange={e => setUserName(e.target.value)}
+                    />
                 </div>
                 <div className={classes.password}>
-                    <TextField
+                    <TextField type={"password"}
                         id="standard-basic"
                         label="Password"
                         variant="standard"
-                        data-testid="input-text" />
+                        data-testid="input-text"
+                        onChange={e => setPassword(e.target.value)}
+                    />
                 </div>
                 <div className={classes.div}>
                     <Link to="/forgetPassword" className={classes.forgetPassword} style={{ textDecoration: 'none', color: '#15a905' }} >
