@@ -11,6 +11,13 @@ export const useStyles = makeStyles((theme: Theme) =>
                     margin: theme.spacing(8),
                 },
             },
+            loginButton: {
+                alignItems:"center",
+                margin: theme.spacing(1),
+                backgroundColor:'#4C525C',
+                color:"#fff"
+
+            },
             h3:{
                 alignItems: 'center',
                 justifyContent: 'center',

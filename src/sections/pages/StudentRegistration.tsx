@@ -19,9 +19,8 @@ const StudentRegistration: React.FC<{}> = () => {
     const [schoolName, setSchoolName] = useState("");
 
     const onSubmit = (e : React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-
-       let stud= {
+       e.preventDefault();
+       let student= {
           firstName: firstName,
           lastName: lastName,
           email: email,
@@ -30,8 +29,20 @@ const StudentRegistration: React.FC<{}> = () => {
           password:password,
           schoolName: schoolName
          };
-         UserService.saveStudent(stud).then(res=>alert("Registration successful")).catch(err=>console.log(err));
+         UserService.saveStudent(student).then(res=>alert("Registration successful")).catch(err=>console.log(err));
        // clear the value and redirect to the login page
+        <Link to="/home" > Home</Link>
+        clearForm();
+
+    }
+    const clearForm=()=>{
+        setFirstName("");
+        setLastName("");
+        setEmail("");
+        setUsername("");
+        setPassword("");
+        setPhone("");
+        setSchoolName("");
     }
     return (
         <ThemeProvider theme={theme}>
@@ -68,6 +79,7 @@ const StudentRegistration: React.FC<{}> = () => {
                         <TextField id="standard-basic" type={"password"} label="Password" variant="standard" value={password}
                                    onChange={e => setPassword(e.target.value)}/>
                     </div>
+
                     <div className={classes.btn}>
                         <RegisterButton />
                     </div>

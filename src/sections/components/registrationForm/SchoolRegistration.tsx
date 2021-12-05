@@ -30,6 +30,16 @@ const SchoolRegistration: React.FC<{}> = () => {
             password:password
         };
        UserService.saveSchool(school).then(res=>alert("Registration successful")).catch(err=>console.log(err));
+       clearForm();
+    }
+    const clearForm=()=>{
+        setName("");
+        setOrganizationNumber("");
+        setSchoolEmail("");
+        sePhone("");
+        setUserEmail("");
+        setUsername("");
+        setPassword("");
     }
     return (
         <ThemeProvider theme={theme}>

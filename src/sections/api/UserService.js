@@ -1,5 +1,8 @@
+import {Router} from "@material-ui/icons";
 
+let inMemoryToken;
 const UserService = {
+
     saveStudent:async (student)=>{
         return  await (await fetch('http://localhost:8081/api/student/', {
             method: 'POST',
@@ -8,6 +11,15 @@ const UserService = {
             },
             body: JSON.stringify(student)
         })).json()
+    },
+    verifyLogin1: async (username, password)=>{
+        return  await (await fetch('http://localhost:8081/api/login/', {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json',
+            },
+            body: JSON.stringify({username, password})
+        })).json();
     },
     saveCompany:async (company)=>{
        return  await (await fetch('http://localhost:8081/api/company/', {
@@ -36,15 +48,37 @@ const UserService = {
             body: JSON.stringify(modifyPassword)
         })).json()
     },
-    login: async (login)=>{
+    /*login: async (jwtToken)=>{
         const response= await (await fetch('http://localhost:8081/api/login', {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json',
             },
-            body: JSON.stringify(login)
+            body: JSON.stringify(jwtToken)
         })).json()
         return response;
-    }
+    },*/
+    login: async ({ jwt_token, jwt_token_expiry }, noRedirect) =>{
+        inMemoryToken = {
+            token: jwt_token,
+            expiry: jwt_token_expiry
+        };
+        if (!noRedirect) {
+            Router.push('/app')
+        }
+    },
+
+    verifyLogin: async(username, password)=>{
+        const response = await fetch(`http://localhost:8081/api/login`, {
+            method: 'POST',
+            body: JSON.stringify({ username, password })
+        })
+        // Extract the JWT from the response
+        const { jwt_token } = await response.json()
+        //...
+        // Do something the token in the login method
+        await this.login({ jwt_token })
+    },
+
 }
 export default UserService;

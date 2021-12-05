@@ -1,9 +1,9 @@
 import {TextField, Paper } from "@material-ui/core";
 import {Link} from 'react-router-dom';
 import React, {FC, ReactElement, useEffect, useState} from "react";
-import LoginButton from "./button/LoginButton";
 import { useStyles } from "./stylesLogAndSig/Styles";
 import UserService from "../../api/UserService";
+import Button from "@material-ui/core/Button";
 
 
 
@@ -14,23 +14,15 @@ const LoginPage:FC<{}> = (props):ReactElement => {
     const [password, setPassword]=useState("");
     const classes = useStyles();
 
-    useEffect(() => {
-        let login={
-            username:username,
-            password:password,
-        }
-        console.log(login)
-        setLoading(false);
-        let response=UserService.login(login).then(res=>console.log(res)).catch(err=>console.log(err));
-        setLoading(true);
-        console.log(login)
-        console.log(response)
-    },[]);
+    const handleLogin = () => {
+        UserService.verifyLogin1(username,password).then(res=>console.log(res)).catch(err=>console.log(err));
+    }
 
     return(
         <div>
             <Paper elevation={3} className={classes.paper}>
                 <h1 className={classes.h3} data-testid="LogIn">LogIn</h1>
+
                 <div className={classes.username} >
                     <TextField
                         id="standard-basic"
@@ -56,7 +48,12 @@ const LoginPage:FC<{}> = (props):ReactElement => {
                 </div>
 
                 <div className={classes.btn}>
-                    <LoginButton />
+                    <Button onClick={handleLogin}
+                        variant="contained"
+                        className={classes.loginButton}
+                        type="submit">
+                        Login
+                    </Button>
                 </div>
 
                 <p className={classes.p}>

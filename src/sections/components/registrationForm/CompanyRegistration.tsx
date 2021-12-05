@@ -6,6 +6,8 @@ import {Paper, TextField} from "@mui/material";
 import RegisterButton from "../loginAndRegister/button/RegisterButton";
 import {Link} from "react-router-dom";
 import UserService from "../../api/UserService";
+import SignUpPage from "../../pages/SignUpPage";
+
 
 const CompanyRegistration: React.FC<{}> = () => {
     const classes = useStyles();
@@ -26,7 +28,17 @@ const CompanyRegistration: React.FC<{}> = () => {
             username:username,
             password:password
         };
-        let response= UserService.saveCompany(company).then(res=>alert("Registration successful")).catch(err=>console.log(err));
+        UserService.saveCompany(company).then(res=>alert("Registration successful")).catch(err=>console.log(err));
+        clearForm();
+    }
+
+    const clearForm=()=>{
+        setName("");
+        setOrganizationNumber("");
+        setCompanyEmail("");
+        setUserEmail("");
+        setUsername("");
+        setPassword("");
     }
     return (
         <ThemeProvider theme={theme}>
