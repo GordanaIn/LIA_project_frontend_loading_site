@@ -11,21 +11,19 @@ import SignUpPage from "../../pages/SignUpPage";
 
 const CompanyRegistration: React.FC<{}> = () => {
     const classes = useStyles();
-    const [name, setName] = useState("");
-    const [organizationNumber, setOrganizationNumber] = useState("");
-    const [companyEmail, setCompanyEmail] = useState("");
-    const [userEmail, setUserEmail] = useState("");
-    const [username, setUsername] = useState("");
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [company, setCompany] = useState("");
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const onSubmit = (e : React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        let company= {
-            name: name,
-            organizationNumber: organizationNumber,
-            companyEmail: companyEmail,
-            userEmail: userEmail,
-            username:username,
+        let employee= {
+            firstName: firstName,
+            lastName: lastName,
+            company: company,
+            email: email,
             password:password
         };
         UserService.saveCompany(company).then(res=>alert("Registration successful")).catch(err=>console.log(err));
@@ -33,11 +31,10 @@ const CompanyRegistration: React.FC<{}> = () => {
     }
 
     const clearForm=()=>{
-        setName("");
-        setOrganizationNumber("");
-        setCompanyEmail("");
-        setUserEmail("");
-        setUsername("");
+        setFirstName("");
+        setLastName("");
+        setCompany("");
+        setEmail("");
         setPassword("");
     }
     return (
@@ -48,26 +45,26 @@ const CompanyRegistration: React.FC<{}> = () => {
                         <h3 className={classes.h3}>Register as a Company</h3>
                         <div className={classes.cont}>
                             <div className={classes.username} >
-                                <TextField className={classes.textfield} id="standard-basic" label="Company Name" variant="standard"   value={name}
-                                           onChange={e => setName(e.target.value)}/>
+                                <TextField className={classes.textfield} id="standard-basic" label="Name" variant="standard"   value={firstName}
+                                           onChange={e => setFirstName(e.target.value)}/>
                             </div>
                             <div className={classes.username} >
-                                <TextField id="standard-basic" label="Organization Number" variant="standard"   value={organizationNumber}
-                                           onChange={e => setOrganizationNumber(e.target.value)}/>
+                                <TextField id="standard-basic" label="Last Name" variant="standard"   value={lastName}
+                                           onChange={e => setLastName(e.target.value)}/>
                             </div>
                             <div className={classes.username} >
-                                <TextField id="standard-basic" label="Company Email" variant="standard"   value={companyEmail}
-                                           onChange={e => setCompanyEmail(e.target.value)}/>
+                                <TextField id="standard-basic" label="Company Name" variant="standard"   value={company}
+                                           onChange={e => setCompany(e.target.value)}/>
                             </div>
                             <div className={classes.username} >
-                                <TextField id="standard-basic" label="User Email" variant="standard"   value={userEmail}
-                                           onChange={e => setUserEmail(e.target.value)}/>
+                                <TextField id="standard-basic" label="Email" variant="standard"   value={email}
+                                           onChange={e => setEmail(e.target.value)}/>
                             </div>
 
-                            <div className={classes.username} >
+                            {/*<div className={classes.username} >
                                 <TextField id="standard-basic" label="Username" variant="standard" value={username}
                                            onChange={e => setUsername(e.target.value)} />
-                            </div>
+                            </div>*/}
                             <div className={classes.password}>
                                 <TextField id="standard-basic" type={"password"} label="Password" variant="standard" value={password}
                                            onChange={e => setPassword(e.target.value)}/>
