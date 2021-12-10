@@ -21,13 +21,13 @@ const UserService = {
             body: JSON.stringify({username, password})
         })).json();
     },
-    saveCompany:async (company)=>{
-       return  await (await fetch('http://localhost:8081/api/company/', {
+    addEmployee:async (employee)=>{
+       return  await (await fetch('http://localhost:8081/api/addEmployee/', {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json',
             },
-            body: JSON.stringify(company)
+            body: JSON.stringify(employee)
         })).json()
     },
     saveSchool:async (school)=>{

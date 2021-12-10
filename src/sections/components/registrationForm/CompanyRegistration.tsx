@@ -26,7 +26,7 @@ const CompanyRegistration: React.FC<{}> = () => {
             email: email,
             password:password
         };
-        UserService.saveCompany(company).then(res=>alert("Registration successful")).catch(err=>console.log(err));
+        UserService.addEmployee(company).then(res=>alert("Registration successful")).catch(err=>console.log(err));
         clearForm();
     }
 
