@@ -5,17 +5,40 @@ import { useStyles } from "./stylesLogAndSig/Styles";
 import UserService from "../../api/UserService";
 import Button from "@material-ui/core/Button";
 
+class Token{
+    access_token:string;
+    refresh_token:string;
+    constructor(access_token:string ,refresh_token:string ){
+        this.access_token=access_token;
+        this.refresh_token=refresh_token;
+    };
 
+}
 
-const LoginPage:FC<{}> = (props):ReactElement => {
+const LoginPage:FC<{}> = (props): ReactElement => {
     const [loading, setLoading] = useState(true);
-    const [state, setState]=useState(true);
+    const [message, setMessage] = useState("");
     const [username, setUserName]=useState("");
     const [password, setPassword]=useState("");
+    const [jwt, setJwt] = useState(false);
+    const [redirect, setRedirect] = useState(false);
+    //saved first
+    const [token, SetToken] =useState<Token>();
+
+    //all other request send the authorization header
     const classes = useStyles();
 
     const handleLogin = () => {
-        UserService.verifyLogin1(username,password).then(res=>console.log(res)).catch(err=>console.log(err));
+        UserService.verifyLogin1(username,password).then(res=>{
+            SetToken(res);
+            console.log(res?.access_token);
+            //switchBasedOnRole(res);
+        }).catch(err=>console.log(err));
+    }
+   //switch to different project
+    const switchBasedOnRole = (token:Token) =>{
+        //role
+        UserService.getRole(token?.access_token);
     }
 
     return(

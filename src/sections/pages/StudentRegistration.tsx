@@ -12,7 +12,6 @@ const StudentRegistration: React.FC<{}> = () => {
     const classes = useStyles();
     const [firstName, setFirstName] = useState(" ");
     const [lastName, setLastName] = useState("");
-    const [email, setEmail] = useState("");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [phone, setPhone] = useState("");
@@ -23,11 +22,11 @@ const StudentRegistration: React.FC<{}> = () => {
        let student= {
           firstName: firstName,
           lastName: lastName,
-          email: email,
           phone: phone,
-          username:username,
+          username: username,
           password:password,
           schoolName: schoolName
+
          };
          UserService.saveStudent(student).then(res=>alert("Registration successful")).catch(err=>console.log(err));
        // clear the value and redirect to the login page
@@ -38,7 +37,6 @@ const StudentRegistration: React.FC<{}> = () => {
     const clearForm=()=>{
         setFirstName("");
         setLastName("");
-        setEmail("");
         setUsername("");
         setPassword("");
         setPhone("");
@@ -58,10 +56,6 @@ const StudentRegistration: React.FC<{}> = () => {
                     <div className={classes.username} >
                         <TextField id="standard-basic" label="Last Name" variant="standard"   value={lastName}
                                    onChange={e => setLastName(e.target.value)}/>
-                    </div>
-                    <div className={classes.username} >
-                        <TextField  type={email} id="standard-basic" label="Email" variant="standard"   value={email}
-                                   onChange={e => setEmail(e.target.value)}/>
                     </div>
                     <div className={classes.username} >
                         <TextField id="standard-basic" label="Phone" variant="standard"   value={phone}

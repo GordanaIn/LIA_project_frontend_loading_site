@@ -12,17 +12,35 @@ const UserService = {
             body: JSON.stringify(student)
         })).json()
     },
-    verifyLogin1: async (username, password)=>{
+  /*  verifyLogin1: async (username, password)=>{
         return  await (await fetch('http://localhost:8081/api/login/', {
             method: 'POST',
-            headers: {
-                'Content-type': 'application/json',
-            },
+            mode: 'cors',
             body: JSON.stringify({username, password})
         })).json();
+    },*/
+    getRole : async (access_token)=>{
+        return fetch('http://localhost:8081/api/getRole/',{
+            mode: "cors",
+            headers: {
+                'Authorization': 'Bearer '+access_token
+            },
+         }).then(res => res.json());
+    },
+
+    verifyLogin1 : async (username, password)=> {
+    // Build formData object.
+    let formData = new FormData();
+    formData.append('username', username);
+    formData.append('password', password);
+    return fetch('http://localhost:8081/api/login', {
+        method: 'POST',
+        mode: "cors",
+        body: formData
+    }).then(res => res.json());
     },
     addEmployee:async (employee)=>{
-       return  await (await fetch('http://localhost:8081/api/addEmployee/', {
+       return  await (await fetch('http://localhost:8081/api/company/addEmployee/', {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json',
@@ -30,6 +48,7 @@ const UserService = {
             body: JSON.stringify(employee)
         })).json()
     },
+
     saveSchool:async (school)=>{
         return  await (await fetch('http://localhost:8081/api/school/', {
             method: 'POST',
