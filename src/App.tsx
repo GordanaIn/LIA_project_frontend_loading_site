@@ -2,6 +2,10 @@ import React, {FC, useState} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import NavBar from './sections/components/headerComponents/navbar/NavBar';
 
+
+import { ReactKeycloakProvider } from '@react-keycloak/web'
+
+
 import LandingPage from './sections/pages/LandingPage';
 import SignUpPage from './sections/pages/SignUpPage';
 import StudentRegistration from "./sections/pages/StudentRegistration";
@@ -15,12 +19,14 @@ import AboutUs from "./sections/pages/AboutUs";
 import CompanyRegistration from "./sections/components/registrationForm/CompanyRegistration";
 import SchoolRegistration from "./sections/components/registrationForm/SchoolRegistration";
 import ChangePassword from "./sections/pages/ChangePassword";
+import keycloak from "./keycloak";
 
 
 
 const App:FC<{}> = () =>{
 
   return (
+      <ReactKeycloakProvider authClient={keycloak} >
       <Router>
         <NavBar/>
         <Switch>
@@ -37,6 +43,7 @@ const App:FC<{}> = () =>{
         </Switch>
           <Footer/>
       </Router>
+</ReactKeycloakProvider>
   );
 }
 export default App;

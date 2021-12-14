@@ -1,11 +1,66 @@
 import {TextField, Paper } from "@material-ui/core";
 import {Link} from 'react-router-dom';
-import React, {FC, ReactElement, useEffect, useState} from "react";
+import React, {useCallback, useEffect, useState} from 'react';
+import {useKeycloak} from "@react-keycloak/web/lib/useKeycloak";
 import { useStyles } from "./stylesLogAndSig/Styles";
 import UserService from "../../api/UserService";
 import Button from "@material-ui/core/Button";
+import classes from "*.module.css";
 
-class Token{
+export default function LoginPage() {
+    const {keycloak, initialized} = useKeycloak()
+
+
+    const kcToken = keycloak?.token ?? '';
+    const [users, setUsers] = useState<string[]>([])
+
+    useEffect(() => {
+            console.log("token", kcToken);
+            if (kcToken) {
+                fetch("http://localhost:8080/users", {
+                    headers: {
+                        "Authorization": "Bearer " + kcToken
+                    }
+                })
+                    .then(res => res.json())
+                    .then(users => setUsers(users))
+                    .catch(reason => console.error("Failed to fetch ", reason))
+            }
+        },
+        [keycloak.authenticated, kcToken])
+    return (
+        <>
+            <h2>Hello</h2>
+            {keycloak.authenticated ? <span>Authenticated</span> : <span>UnAuthenticated</span>}
+            <div>
+                <h4>Users</h4>
+                <ul>
+                    {users.map(user => <ul key={user}>{user}</ul>)}
+                </ul>
+            </div>
+            <div>
+                {keycloak.authenticated ?
+                    <button
+                        type="button"
+                        onClick={() => keycloak.logout()}>
+                        logout
+                    </button>
+                    :
+                    <button
+                        type="button"
+                        onClick={() => keycloak?.login()}>
+                        login
+                    </button>
+                }
+
+            </div>
+        </>
+    )
+}
+
+
+
+/*class Token{
     access_token:string;
     refresh_token:string;
     constructor(access_token:string ,refresh_token:string ){
@@ -93,4 +148,4 @@ const LoginPage:FC<{}> = (props): ReactElement => {
 
     );
 }
-export default LoginPage;
+*/
