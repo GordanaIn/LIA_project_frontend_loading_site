@@ -36,7 +36,7 @@ const CompanyRegistration: React.FC<{}> = () => {
         setLastName("");
         setEmail("");
         setUsername("");
-        setPassword("");
+
     }
     return (
         <ThemeProvider theme={theme}>

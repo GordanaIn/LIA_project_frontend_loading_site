@@ -12,13 +12,15 @@ const UserService = {
             body: JSON.stringify(student)
         })).json()
     },
-  /*  verifyLogin1: async (username, password)=>{
-        return  await (await fetch('http://localhost:8081/api/login/', {
+    verifyLogin2: async (login)=>{
+        return  await (await fetch('http://localhost:8082/api/login/', {
             method: 'POST',
-            mode: 'cors',
-            body: JSON.stringify({username, password})
+            headers: {
+                'Content-type': 'application/json',
+            },
+            body:JSON.stringify(login)
         })).json();
-    },*/
+    },
     getRole : async (access_token)=>{
         return fetch('http://localhost:8081/api/getRole/',{
             mode: "cors",

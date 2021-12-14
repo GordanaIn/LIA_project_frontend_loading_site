@@ -5,14 +5,19 @@ import {useKeycloak} from "@react-keycloak/web/lib/useKeycloak";
 import { useStyles } from "./stylesLogAndSig/Styles";
 import UserService from "../../api/UserService";
 import Button from "@material-ui/core/Button";
-import classes from "*.module.css";
+
 
 export default function LoginPage() {
+    const classes = useStyles();
+    const [username, setUserName]=useState("");
+    const [password, setPassword]=useState("");
     const {keycloak, initialized} = useKeycloak()
-
-
     const kcToken = keycloak?.token ?? '';
     const [users, setUsers] = useState<string[]>([])
+
+    useEffect(()=>{
+
+    })
 
     useEffect(() => {
             console.log("token", kcToken);
@@ -28,35 +33,100 @@ export default function LoginPage() {
             }
         },
         [keycloak.authenticated, kcToken])
+
+    const handleLogin = () => {
+
+    }
+    const handleLogout = () => {
+
+    }
+
     return (
         <>
-            <h2>Hello</h2>
-            {keycloak.authenticated ? <span>Authenticated</span> : <span>UnAuthenticated</span>}
-            <div>
-                <h4>Users</h4>
-                <ul>
-                    {users.map(user => <ul key={user}>{user}</ul>)}
-                </ul>
-            </div>
-            <div>
-                {keycloak.authenticated ?
-                    <button
-                        type="button"
-                        onClick={() => keycloak.logout()}>
-                        logout
-                    </button>
-                    :
-                    <button
-                        type="button"
-                        onClick={() => keycloak?.login()}>
-                        login
-                    </button>
-                }
 
-            </div>
+            <Paper elevation={3} className={classes.paper}>
+
+                <div>
+                    <h2>Hello</h2>
+                    {keycloak.authenticated ? <span>Authenticated</span> : <span>UnAuthenticated</span>}
+                    <div>
+                        <h4>Users</h4>
+                        <ul>
+                            {users.map(user => <ul key={user}>{user}</ul>)}
+                        </ul>
+                    </div>
+                    <div>
+                        {keycloak.authenticated ?
+                            <button
+                                type="button"
+                                onClick={() => keycloak.logout()}>
+                                logout
+                            </button>
+                            :
+                            <button
+                                type="button"
+                                onClick={() => keycloak?.login()}>
+                                login
+                            </button>
+                        }
+                    </div>
+                </div>
+
+
+
+                <h1 className={classes.h3} data-testid="LogIn">LogIn</h1>
+                <div className={classes.username} >
+                    <TextField
+                        id="standard-basic"
+                        label="Username"
+                        variant="standard"
+                        data-testid="input-text"
+                        onChange={e => setUserName(e.target.value)}
+                    />
+                </div>
+                <div className={classes.password}>
+                    <TextField type={"password"}
+                               id="standard-basic"
+                               label="Password"
+                               variant="standard"
+                               data-testid="input-text"
+                               onChange={e => setPassword(e.target.value)}
+                    />
+                </div>
+                <div className={classes.div}>
+                    <Link to="/forgetPassword" className={classes.forgetPassword} style={{ textDecoration: 'none', color: '#15a905' }} >
+                        Forget password?
+                    </Link>
+                </div>
+
+                <div className={classes.btn}>
+                    <Button onClick={handleLogin}
+                            variant="contained"
+                            className={classes.loginButton}
+                            type="submit">
+                        Login
+                    </Button>
+                    <Button onClick={handleLogout}
+                            variant="contained"
+                            className={classes.loginButton}
+                            type="submit">
+                        Logout
+                    </Button>
+                </div>
+
+                <p className={classes.p}>
+
+                    If you don't have account
+                    <Link to="/signUp" className={classes.signUp} style={{ textDecoration: 'none', color: '#15a905' }} >
+                        SignUp
+                    </Link>
+
+                </p>
+            </Paper>
+
         </>
     )
-}
+};
 
 
 
@@ -68,6 +138,12 @@ export default function LoginPage() {
         this.refresh_token=refresh_token;
     };
 
+}
+class Token1{
+    token:string;
+    constructor(token:string ){
+        this.token=token;
+    };
 }
 
 const LoginPage:FC<{}> = (props): ReactElement => {
@@ -84,7 +160,11 @@ const LoginPage:FC<{}> = (props): ReactElement => {
     const classes = useStyles();
 
     const handleLogin = () => {
-        UserService.verifyLogin1(username,password).then(res=>{
+        const login = {
+          username:username,
+           password:password
+        }
+        UserService.verifyLogin2(login).then(res=>{
             SetToken(res);
             console.log(res?.access_token);
             //switchBasedOnRole(res);

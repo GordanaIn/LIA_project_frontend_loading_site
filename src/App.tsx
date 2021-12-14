@@ -3,15 +3,12 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import NavBar from './sections/components/headerComponents/navbar/NavBar';
 
 
-import { ReactKeycloakProvider } from '@react-keycloak/web'
-
-
 import LandingPage from './sections/pages/LandingPage';
 import SignUpPage from './sections/pages/SignUpPage';
 import StudentRegistration from "./sections/pages/StudentRegistration";
 import Support from './sections/pages/Support';
 
-
+import { ReactKeycloakProvider } from '@react-keycloak/web'
 import Logo from "./sections/components/headerComponents/logan/Logo";
 import Footer from "./sections/components/headerComponents/Footer";
 import Contact from "./sections/pages/Contact";
