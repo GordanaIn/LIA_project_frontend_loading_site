@@ -1,13 +1,13 @@
 import {TextField, Paper } from "@material-ui/core";
 import {Link} from 'react-router-dom';
-import React, {useCallback, useEffect, useState} from 'react';
-import {useKeycloak} from "@react-keycloak/web/lib/useKeycloak";
+import React, {FC, ReactElement,  useState} from 'react';
+//import {useKeycloak} from "@react-keycloak/web/lib/useKeycloak";
 import { useStyles } from "./stylesLogAndSig/Styles";
 import UserService from "../../api/UserService";
 import Button from "@material-ui/core/Button";
 
 
-export default function LoginPage() {
+/*export default function LoginPage() {
     const classes = useStyles();
     const [username, setUserName]=useState("");
     const [password, setPassword]=useState("");
@@ -126,11 +126,9 @@ export default function LoginPage() {
 
         </>
     )
-};
+};*/
 
-
-
-/*class Token{
+class Token{
     access_token:string;
     refresh_token:string;
     constructor(access_token:string ,refresh_token:string ){
@@ -146,8 +144,8 @@ class Token1{
     };
 }
 
-const LoginPage:FC<{}> = (props): ReactElement => {
-    const [loading, setLoading] = useState(true);
+export default function LoginPage(){
+const [loading, setLoading] = useState(true);
     const [message, setMessage] = useState("");
     const [username, setUserName]=useState("");
     const [password, setPassword]=useState("");
@@ -228,4 +226,4 @@ const LoginPage:FC<{}> = (props): ReactElement => {
 
     );
 }
-*/
+
